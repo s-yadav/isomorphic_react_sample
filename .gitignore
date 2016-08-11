@@ -1,0 +1,8 @@
+node_modules/**/*
+*.swp
+.DS_Store
+.idea/
+public/css/**/*
+public/js/**/*
+newrelic_agent.log
+npm-debug.log

@@ -1,0 +1,133 @@
+@import "lesshat.less";
+@import "variables.less";
+@import "mixins.less";
+
+* {
+  .box-sizing(border-box);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body,
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+/** float css **/
+.f-l {
+  float: left;
+}
+.f-r {
+  float: right;
+}
+.c-b {
+  clear: both;
+}
+.full-width {
+  width: 100%;
+}
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.cf:after {
+  clear: both;
+}
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+  *zoom: 1;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.text-center {
+  text-align: center;
+}
+ul,
+ol {
+  list-style: none;
+}
+.flex {
+  .display(flex);
+}
+
+body {
+  .light();
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+  padding-top: 60px;
+}
+
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: none;
+  }
+}
+.mandatory {
+  &::after {
+    content: '*';
+    margin-left: 2px;
+  }
+}
+
+.page-loader{
+  height: 5px;
+  background: @primary;
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 11;
+}
+
+@font-face {
+  font-family: 'trueno_lt';
+  src: url(../fonts/TruenoLt.eot);
+  src: url(../fonts/TruenoLt.eot?#iefix) format('embedded-opentype'), url(../fonts/TruenoLt.woff2) format('woff2'), url(../fonts/TruenoLt.woff) format('woff'), url(../fonts/TruenoLt.ttf) format('truetype'), url(../fonts/TruenoLt.svg#TruenoLt) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'trueno_rg';
+  src: url(../fonts/TruenoRg.eot);
+  src: url(../fonts/TruenoRg.eot?#iefix) format('embedded-opentype'), url(../fonts/TruenoRg.woff2) format('woff2'), url(../fonts/TruenoRg.woff) format('woff'), url(../fonts/TruenoRg.ttf) format('truetype'), url(../fonts/TruenoRg.svg#TruenoRg) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'trueno_ultLt';
+  src: url(../fonts/TruenoUltLt.eot);
+  src: url(../fonts/TruenoUltLt.eot?#iefix) format('embedded-opentype'), url(../fonts/TruenoUltLt.woff2) format('woff2'), url(../fonts/TruenoUltLt.woff) format('woff'), url(../fonts/TruenoUltLt.ttf) format('truetype'), url(../fonts/TruenoUltLt.svg#TruenoUltLt) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,25 @@
+.statistic {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 5px;
+
+  .title, .color-bar {
+    flex: 1 0 50%;
+  }
+
+  .title {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .value {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    transform: translateY(-50%);
+  }
+}

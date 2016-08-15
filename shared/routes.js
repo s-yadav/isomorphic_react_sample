@@ -3,7 +3,7 @@ const {Router, Route, IndexRoute, IndexRedirect } = require('react-router'), {Pr
   App = require('./index'),
   PokeRoutes = require('./pokemon/routes');
 
-require('./util/patch_require')(require);
+//require('./util/patch_require')(require);
 
 const AppRoute = {
   component : App,

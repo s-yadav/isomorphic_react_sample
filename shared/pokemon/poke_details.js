@@ -23,7 +23,7 @@ class PokeDetails extends React.Component {
           <div className="pokemon-details-container">
 
             <div className="pokemon-important-info">
-              <div className="poke-img" style={{backgroundImage: 'url("'+'https://pokeapi.co/media/sprites/pokemon/' + pokemon.id + '.png'+'")'}} ></div>
+              <div className="poke-img" style={{backgroundImage: 'url("'+'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon.id + '.png'+'")'}} ></div>
 
               <div className="stats">
                 <ul className="types">

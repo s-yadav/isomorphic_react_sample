@@ -5,6 +5,7 @@ const React = require('react'),
 const {Link} = require('react-router');
 const PokemonDetail = require('./poke_details');
 
+require("./poke_details.less");
 
 let PokemonDetailContainer = React.createClass({
   componentDidMount(){

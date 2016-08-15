@@ -79,7 +79,8 @@ function server(development){
     const webpackChunkManifest = JSON.stringify(require('./webpack-manifest/chunk-manifest.json'));
     manifestScript = `<script>
       /*** webpack menifest data ***/
-      var webpackManifest = ${webpackChunkManifest}
+      var webpackChunkManifest = ${webpackChunkManifest};
+      var webpackManifest = ${JSON.stringify(webpackManifest)};
     </script>`;
 
   }
@@ -153,7 +154,24 @@ function server(development){
 									return "";
 								});
 
+                console.log(reactString);
+
+                let scripts = [];
+                reactString = reactString.replace(/<script[^<>]*?data-asset="javascript"[^<>]*?><\/script>/g,function($1,$2){
+									scripts.push($1);
+									return "";
+								});
+
+                let stylesheets = [];
+                reactString = reactString.replace(/<link[^<>]*?data-asset="stylesheet"[^<>]*?\/?>/g,function($1,$2){
+                  stylesheets.push($1);
+                  return "";
+                });
+
 								meta = meta.join('').replace(/data-react-id=".*?"/g,'');
+                scripts = scripts.join('').replace(/data-react-id=".*?"/g,'');
+                stylesheets = stylesheets.join('').replace(/data-react-id=".*?"/g,'');
+
 								const isTitlePresent = meta.match(/<title[^<>]*>((.|\n)*?)<\/title>/);
                 const appCss = webpackManifest['app.css'];
                 const template = (
@@ -164,7 +182,8 @@ function server(development){
                       (isTitlePresent ? '' : '<title>ISOMORPHIC SAMPLE</title>')+
 											`${meta}
 										<link rel="shortcut icon" href="/public/images/favicon.ico"/>
-                    <link rel="stylesheet" type="text/css" href="/public/js/${webpackManifest['app.css']}">
+                    ${stylesheets}
+                    <link rel="stylesheet" type="text/css" href="/public/css/${webpackManifest['app.css']}">
                       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                     </head>
                     <body>
@@ -178,6 +197,7 @@ function server(development){
                       </script>
                       <script src="/public/js/${webpackManifest['common.js']}"></script>
                       <script src="/public/js/${webpackManifest['app.js']}"></script>
+                      ${scripts}
                     </body>
                   </html>`
         				);

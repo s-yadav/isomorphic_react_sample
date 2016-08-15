@@ -25,7 +25,7 @@ const authAction = {
                             id: id,
                             url: url,
                             name: pokemon.name,
-                            image: 'http://pokeapi.co/media/sprites/pokemon/' + id + '.png'
+                            image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + id + '.png'
                         }
                     });
 

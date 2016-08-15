@@ -5,6 +5,9 @@ const {connect} = require('react-redux');
 const {Link} = require('react-router');
 
 
+require("./pokemon.less");
+
+
 const Pokemon = React.createClass({
   render(){
     const {name, image, id, loading, onClick} = this.props;
